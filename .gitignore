@@ -1,0 +1,74 @@
+# Build and runtime
+**/bin
+**/obj
+**/out
+*.exe
+*.dll
+*.log
+*.db
+*.db-shm
+*.db-wal
+*.pdb
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf/
+.idea/**/httpRequests/
+.idea/**/dataSources/
+.idea/**/dataSources.local.xml
+.idea/**/contentModel.xml
+.idea/**/modules.xml
+.idea/**/projectSettingsUpdater.xml
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET / Configuration
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
+
+# Entity Framework / Migrations temp
+Migrations/obj/
+Migrations/bin/
+
+# Environment / Secrets
+*.env
+.env.*
+secrets.json
+
+# Logs and data
+logs/
+*.log
+*.csv
+*.bak
+*.tmp
+
+# Tests / Coverage
+TestResults/
+*.coverage
+*.coveragexml
+
+# Publish artifacts
+publish/
+wwwroot/dist/
+wwwroot/node_modules/
+
+# Node (if using frontend assets)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cache
+*.cache/
+*.temp/

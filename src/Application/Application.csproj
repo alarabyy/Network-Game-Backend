@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CodeHollow.FeedReader" Version="1.2.6" />
+      <PackageReference Include="FastEndpoints" Version="7.1.0" />
+      <PackageReference Include="FastEndpoints.Security" Version="7.1.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.3.0" />
+      <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.10" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="FastEndpoints">
+        <HintPath>..\..\..\..\..\..\..\home\mohagear\.nuget\packages\fastendpoints\7.1.0\lib\net9.0\FastEndpoints.dll</HintPath>
+      </Reference>
+      <Reference Include="FastEndpoints.Security">
+        <HintPath>..\..\..\..\..\..\..\home\mohagear\.nuget\packages\fastendpoints.security\7.1.0\lib\net9.0\FastEndpoints.Security.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
