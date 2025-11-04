@@ -1,15 +1,11 @@
-using FastEndpoints.Security;
 using Microsoft.Extensions.Configuration;
 using Application.Models.Authentication;
-using System.IdentityModel.Tokens.Jwt;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Application.Interfaces;
-using FastEndpoints;
+using FastEndpoints.Security;
 using DataAccess.Entities;
 using Application.Common;
-using System.Text;
 
 namespace Application.Services;
 
@@ -30,8 +26,7 @@ public sealed class AuthenticationService(
             return StandardResponse<LoginResponse>.Failed("Email or Password is incorrect.");
 
         var userRoles = await userManager.GetRolesAsync(user);
-
-      
+        
         string token;
         try
         {
@@ -54,8 +49,7 @@ public sealed class AuthenticationService(
         var response = new LoginResponse(token);
         return StandardResponse<LoginResponse>.Succeeded(response, "Login successful.");
     }
-
-
+    
     public async Task<StandardResponse> RegisterAsync(RegisterRequest request, CancellationToken ct)
     {
         var userByEmail = await userManager.FindByEmailAsync(request.Email);
@@ -94,8 +88,7 @@ public sealed class AuthenticationService(
         }
         
         var token = await userManager.GeneratePasswordResetTokenAsync(user);
-        var resetLink = $"https://your-frontend-app.com/reset-password?token={Uri.EscapeDataString(token)}&email={Uri.EscapeDataString(user.Email!)}";
-        await emailSender.SendEmailAsync(user.Email!, "Reset Your Password", $"Please reset your password by clicking here: <a href='{resetLink}'>Reset Password</a>", ct);
+        await emailSender.SendEmailAsync(user.Email!, "Reset Your Password", $"Please reset your password by clicking here: {token}", ct);
 
         return response;
     }
